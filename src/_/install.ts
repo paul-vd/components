@@ -9,10 +9,12 @@ const defaultClass = `twic`;
 
 export const config: {
     class: string,
+    debug:boolean,
     domain: string,
     path: string,
 } = {
     "class": defaultClass,
+    "debug": false,
     "domain": undefined,
     "path": ``,
 };
@@ -54,7 +56,7 @@ export default ( options: Options ): void => {
 
     const hasPreviousInstall = config && config.domain;
 
-    const { domain, "class": _class, path } = options;
+    const { debug, domain, "class": _class, path } = options;
 
     if ( !domain || !rValidDomain.test( domain ) ) {
         throwError( `install domain "${ domain }" is invalid` );
@@ -67,6 +69,7 @@ export default ( options: Options ): void => {
         config.path = path.replace( /^\/?(.+?)\/?$/, `$1/` );
     }
 
+    config.debug = debug || false;
     config.domain = domain;
     config.class = _class || defaultClass;
 
@@ -84,7 +87,7 @@ export default ( options: Options ): void => {
                 if ( key === `maxDPR` ) {
                     actualKey = `max-dpr`;
                 }
-                if ( ( key !== `domain` ) && ( key !== `path` ) ) {
+                if ( ( key !== `domain` ) && ( key !== `path` ) && ( key !== `debug` ) ) {
                     parts.push( `${ actualKey }=${ value }` );
                 }
             }

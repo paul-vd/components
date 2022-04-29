@@ -24,6 +24,7 @@ export interface Attributes {
 export interface Options {
     anticipation?: number,
     class?: string,
+    debug?: boolean,
     domain: string,
     maxDPR?: number,
     path?: string,

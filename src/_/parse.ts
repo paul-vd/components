@@ -59,7 +59,8 @@ export const parseSrc = ( value: string ): string => {
         logError( `src is mandatory` );
         return undefined;
     }
-    return value.replace( rImage, `image:${ config.path }` );
+
+    return config.debug ? `placeholder:auto` : value.replace( rImage, `image:${ config.path }` );
 };
 
 export const parseTransition = ( value: boolean | string ): Transition[] => {
