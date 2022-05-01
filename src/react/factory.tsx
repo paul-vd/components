@@ -59,7 +59,7 @@ const propTypes = {
     "placeholder": oneOf< Placeholder >( validPlaceholders ),
     "position": string,
     "ratio": string,
-    "src": string.isRequired,
+    "src": string,
     "step": number,
     "transition": PropTypes.oneOfType( [
         PropTypes.bool,
@@ -110,7 +110,7 @@ export default ( Tag: `img` | `video`, withAlt?: boolean ):
             const className = parseClassName( props.className ) || ``;
             const focus = parseFocus( props.focus );
             const mode = parseMode( props.mode );
-            const placeholder = parsePlaceholder( props.placeholder );
+            const placeholder = parsePlaceholder( props.placeholder, props.src );
             const position = parsePosition( props.position );
             const ratio = parseRatio( props.ratio );
             const src = parseSrc( props.src );
