@@ -11,22 +11,22 @@ const res = await getSampleImage();
         </h2>
         <div class="samples">
             <div class="item">
-                <!--TwicImg
+                <TwicImg
                     :src="res.imgSrc"
                     :focus="res.focus"
                     :ratio="res.ratio"
                     :mode="res.mode"
-                /-->
+                />
                 <span>ratio = {{ res.ratio }}</span>
             </div>
             <div class="item">
-                <!--TwicImg
+                <TwicImg
                     :src="res.imgSrc"
                     :focus="res.focus"
                     :ratio="res.ratio"
                     :mode="res.mode"
                     transition="zoom"
-                /-->
+                />
                 <span>ratio = {{ res.ratio }}, transition = "zoom"</span>
             </div>
         </div>

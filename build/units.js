@@ -102,6 +102,21 @@ export default [
     },
     {
         "external": [],
+        "framework": `nuxt3`,
+        "javascript": true,
+        "postBuild": {
+            "copy": {
+                "files": [
+                    {
+                        "sourceFileName": `plugin.js`,
+                    },
+                ],
+            },
+        },
+        "sourceDir": `nuxt3`,
+    },
+    {
+        "external": [],
         "framework": `gatsby`,
         "sourceFileName": `plugin`,
         "outputFileName": `plugin`,
