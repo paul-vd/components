@@ -1,10 +1,7 @@
 import TwicPics from "@twicpics/components/vue3";
+import { defineNuxtPlugin, useRuntimeConfig } from '#app';
 
-export default nuxtApp => {
-    console.log( "Inside plugin.", nuxtApp );
-    nuxtApp.use( TwicPics, {
-        "domain": `https://demo.twic.pics`,
-        "anticipation": 0.5,
-        "step": 50,
-    } );
-};
+export default defineNuxtPlugin( nuxtApp => {
+    const runtimeConfig = useRuntimeConfig();
+    nuxtApp.vueApp.use( TwicPics, runtimeConfig.twicpics );
+} );

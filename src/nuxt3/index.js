@@ -13,26 +13,16 @@ export default defineNuxtModule( {
             "nuxt": `^3.0.0`,
         },
     },
-    setup( options, nuxt ) {
-
-        const twicPicsOptions = {
-            ...( options || {} ),
-            ...( nuxt.options.twicpics || {} ),
-        };
-
-        console.log( `twicpicsOptions`, options, twicPicsOptions );
-
-        if ( !twicPicsOptions.domain ) {
+    setup( moduleOptions, nuxt ) {
+        if ( !moduleOptions || !moduleOptions.domain ) {
             // eslint-disable-next-line no-console
-            console.warn( `twicpics nuxt3 module : domain has not been configured. Please check nuxt.config.js file` );
+            console.warn( `twicpics nuxt3 module : domain has not been configured. Please check nuxt.config.ts file` );
         }
-
+        nuxt.options.runtimeConfig.public.twicpics = moduleOptions;
         nuxt.options.css.push( `@twicpics/components/style.css` );
-        // create resolver to resolve relative paths
         const { resolve } = createResolver( import.meta.url );
         addPlugin( {
             "src": resolve( `./plugin` ),
-            twicPicsOptions,
         } );
     },
 } );
