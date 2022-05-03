@@ -93,12 +93,10 @@ export default [
                 "files": [
                     {
                         "sourceFileName": `plugin.js`,
-                        "replacer": code => code.replace( /vueXXX/g, `vue2` ),
                     },
                 ],
             },
         },
-        "sourceDir": `nuxt`,
     },
     {
         "external": [],
@@ -113,7 +111,6 @@ export default [
                 ],
             },
         },
-        "sourceDir": `nuxt3`,
     },
     {
         "external": [],
