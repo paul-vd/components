@@ -29,7 +29,7 @@ export const parseFocus = trimOrUndefined;
 export const parseMode = regExpFinderFactory< Mode >( rValidMode );
 
 export const parsePlaceholder = ( placeholder: Placeholder, src:string ) : Placeholder => {
-    if ( config.debug || !trimOrUndefined( src ) || ( placeholder === `none` ) ) {
+    if ( ( config.mode === `offline` ) || !trimOrUndefined( src ) || ( placeholder === `none` ) ) {
         return undefined;
     }
     return rValidPlaceholder.test( placeholder ) ? placeholder : `preview`;
@@ -67,10 +67,10 @@ export const parseSrc = ( value: string ): string => {
     value = trimOrUndefined( value );
     if ( !value ) {
         logWarning( `src is not provided` );
-        return `placeholder:red`;
     }
-
-    return config.debug ? `placeholder:auto` : value.replace( rImage, `image:${ config.path }` );
+    // eslint-disable-next-line no-nested-ternary
+    return config.mode === `offline` ?
+        `` : ( value ? value.replace( rImage, `image:${ config.path }` ) : `placeholder:red` );
 };
 
 export const parseTransition = ( value: boolean | string ): Transition[] => {

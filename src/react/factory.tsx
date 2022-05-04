@@ -123,7 +123,7 @@ export default ( Tag: `img` | `video`, withAlt?: boolean ):
                 <div className= { `twic-i ${ className }` }>
                     <div
                         ref={ this._w }
-                        className = { computeWrapperClass( transition ) }
+                        className = { computeWrapperClass( transition, props.src ) }
                         style = {
                             computeWrapperStyle(
                                 focus,

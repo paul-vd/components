@@ -142,7 +142,7 @@ export class TwicBaseComponent implements OnInit, OnDestroy, OnChanges {
             this._transitionTimingFunct
         );
 
-        this.wrapperClass = computeWrapperClass( this._transition );
+        this.wrapperClass = computeWrapperClass( this._transition, this.src );
 
         this.wrapperStyle = computeWrapperStyle(
             this._focus,

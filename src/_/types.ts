@@ -1,9 +1,9 @@
 import type { PlaceholderData } from "./placeholder";
 
 export type Mode = `contain` | `cover`;
-
 export type Placeholder = `maincolor` | `meancolor` | `none` | `preview`;
 export type Transition = `fade` | `zoom` | `none`;
+export type TwicMode = `debug` | `offline` | `production`;
 
 export interface Attributes {
     alt?: string,
@@ -27,6 +27,7 @@ export interface Options {
     debug?: boolean,
     domain: string,
     maxDPR?: number,
+    mode?:TwicMode,
     path?: string,
     step?: number,
 }
