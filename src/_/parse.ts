@@ -37,6 +37,8 @@ export const parsePlaceholder = ( placeholder: Placeholder, src:string ) : Place
 
 export const parsePosition = trimOrUndefined;
 
+export const parsePreTransform = trimOrUndefined;
+
 export const parseRatio = ( value: number | string ): number => {
     let number: number;
     if ( typeof value === `number` ) {
