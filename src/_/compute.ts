@@ -36,7 +36,7 @@ export const computeData = (
 
     if ( ( config.mode === `debug` ) || preTransform ) {
         attributes[ `data-${ config.class }-transform` ] = `${
-            preTransform ? `${ preTransform }/` : ``
+            preTransform
         }${
             config.mode === `debug` ? `debug/` : ``
         }${

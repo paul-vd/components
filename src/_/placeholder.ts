@@ -49,7 +49,7 @@ const computeWrapperBackground = (
     return `${
         ( ( actualMode === `cover` ) && focus ) ? `focus=${ focus }/` : ``
     }${
-        preTransform ? `${ preTransform }/` : ``
+        preTransform
     }${
         actualMode
     }=${
